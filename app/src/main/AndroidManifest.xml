@@ -20,7 +20,7 @@
 
         <activity
             android:name=".activity.PiHoleAdminActivity"
-            android:theme="@style/PiHolder.NoActionBar" />
+            android:theme="@style/PiHolder" />
 
     </application>
 

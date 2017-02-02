@@ -9,7 +9,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "net.treelzebub.piholder"
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -32,6 +32,7 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$support_version"
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'com.github.treelzebub:knapsack:0.3'
+    compile 'net.sarazan.prefs:prefs:1.1.01@aar'
 
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
