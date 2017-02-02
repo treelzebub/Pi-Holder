@@ -5,6 +5,13 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="72dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/piholelogo" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +23,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:hint="10.0.0.2/admin" />
+        android:hint="10.0.0.2/admin"
+        android:imeOptions="actionGo"
+        android:inputType="textNoSuggestions"
+        android:singleLine="true" />
 
     <Button
         android:id="@+id/button"

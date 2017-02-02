@@ -1,6 +1,8 @@
 <resources>
 
-    <style name="PiHolder" parent="Theme.AppCompat">
+    <style name="PiHolder" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:colorBackground">@color/bg_light</item>
+        <item name="android:windowBackground">@color/bg_light</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>

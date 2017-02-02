@@ -2,6 +2,10 @@
 # Created by https://www.gitignore.io/api/android,intellij+iml,java,osx,gradle
 
 ### Android ###
+
+#keystore
+*.jks
+
 # Built application files
 *.apk
 *.ap_

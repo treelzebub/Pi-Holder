@@ -59,7 +59,7 @@ class PiHoleAdminActivity : WebViewActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if (PiHolderEnv.env.isDebug) {
+        if (!PiHolderEnv.env.isProd) {
             menuInflater.inflate(R.menu.menu_debug, menu)
         }
         return super.onCreateOptionsMenu(menu)
