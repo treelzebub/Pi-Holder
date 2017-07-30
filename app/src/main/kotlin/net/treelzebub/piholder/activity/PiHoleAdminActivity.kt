@@ -14,7 +14,7 @@ import net.treelzebub.knapsack.extensions.startActivity
 import net.treelzebub.piholder.R
 import net.treelzebub.piholder.env.PiHolderEnv
 
-class PiHoleAdminActivity : WebViewActivity() {
+class PiHoleAdminActivity : PiHolderActivity() {
 
     companion object {
         fun get(c: Context, url: String): Intent {
@@ -51,6 +51,12 @@ class PiHoleAdminActivity : WebViewActivity() {
             menuInflater.inflate(R.menu.menu_debug, menu)
         }
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onBackPressed() {
+        if (webview.canGoBack()) {
+            webview.goBack()
+        } else super.onBackPressed()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
