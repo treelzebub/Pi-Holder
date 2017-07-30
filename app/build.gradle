@@ -7,7 +7,7 @@ apply plugin: 'io.fabric'
 group='com.github.treelzebub' //jitpack
 
 android {
-    compileSdkVersion target_sdk
+    compileSdkVersion compile_sdk
     buildToolsVersion build_tools
     defaultConfig {
         applicationId "net.treelzebub.piholder"

@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Pi-Holder.iml" filepath="$PROJECT_DIR$/Pi-Holder.iml" />
-      <module fileurl="file://C:\Users\treelzebub\Projects\Pi-Holder\Pi-Holder.iml" filepath="C:\Users\treelzebub\Projects\Pi-Holder\Pi-Holder.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\treelzebub\Projects\Pi-Holder\app\app.iml" filepath="C:\Users\treelzebub\Projects\Pi-Holder\app\app.iml" />
     </modules>
   </component>
 </project>
