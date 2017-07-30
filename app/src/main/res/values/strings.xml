@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Pi-Holder</string>
+    <string name="example_url">e.g., 192.168.2.2/admin</string>
+    <string name="main_title">Enter your Pi-Hole Admin Panel URL</string>
+    <string name="cd_logo_for_pi_hole">Logo for Pi-Hole</string>
 </resources>

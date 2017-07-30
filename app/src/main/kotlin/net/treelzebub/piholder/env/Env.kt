@@ -4,7 +4,6 @@ import android.app.ActivityManager
 import kotlin.properties.Delegates
 
 interface Env {
-
     val flavor: String
     val isDebug: Boolean
     val isBeta: Boolean
@@ -13,7 +12,6 @@ interface Env {
 }
 
 class CurrentEnv(clazz: Class<*>) : Env {
-
     override val flavor  = clazz.getField("FLAVOR").get(null) as String
     override val isDebug = clazz.getField("DEBUG").get(null) as Boolean
     override val isBeta  = "beta" in flavor

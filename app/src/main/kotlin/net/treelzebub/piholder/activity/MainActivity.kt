@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 import net.treelzebub.piholder.R
 import net.treelzebub.piholder.prefs.withPref
 
@@ -19,8 +19,7 @@ class MainActivity : PiHolderActivity() {
     }
 
     private var piholeUrl by withPref<String>("pihole_admin_panel_url")
-
-    private val reset by lazy { intent.getBooleanExtra("reset", false) }
+    private val reset     by lazy { intent.getBooleanExtra("reset", false) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,47 +38,33 @@ class MainActivity : PiHolderActivity() {
     }
 
     private fun initViews() {
-        val urlEt = findViewById(R.id.url) as EditText
-        val button = findViewById(R.id.button)
-
-        fun click() {
-            val txt = urlEt.text.toString().trim()
+        val click = {
+            val txt = url.text.toString().trim()
+            val toast: String
             if (txt.isNotBlank()) {
-                piholeUrl = txt.maybePrepend()
-                Toast.makeText(this, piholeUrl, Toast.LENGTH_SHORT).show()
+                piholeUrl = txt.maybePrependScheme()
+                toast = piholeUrl!!
                 go()
             } else {
-                Toast.makeText(this, "URL cannot be blank.", Toast.LENGTH_SHORT).show()
+                toast = "URL cannot be blank."
             }
+            Toast.makeText(this, toast, Toast.LENGTH_SHORT).show()
         }
 
-        urlEt.setOnEditorActionListener { editText, actionId, keyEvent ->
+        url.setOnEditorActionListener {
+            _, actionId, keyEvent ->
             if (actionId == EditorInfo.IME_ACTION_GO
                     || (keyEvent?.action == KeyEvent.ACTION_DOWN
-                    && keyEvent?.keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    && keyEvent.keyCode == KeyEvent.KEYCODE_ENTER)) {
                 click()
                 true
             } else false
         }
-        button.setOnClickListener {
-            click()
-        }
+        button.setOnClickListener { click() }
     }
 
-    private fun String.maybePrepend(): String {
-        val scheme = "http://"
-        return if (!this.startsWith(scheme)) {
-            scheme + this
-        } else this
-    }
-
-    private var taps = 0
-    override fun onBackPressed() {
-        if (++taps == 1) {
-            Toast.makeText(this, "Tap back again to exit.", Toast.LENGTH_SHORT).show()
-        } else {
-            finish()
-            super.onBackPressed()
-        }
+    private fun String.maybePrependScheme(): String {
+        val secure = "http://"
+        return if(!startsWith(secure)) secure + this else this
     }
 }

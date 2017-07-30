@@ -6,15 +6,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_pihole_admin.*
 import net.treelzebub.knapsack.extensions.startActivity
 import net.treelzebub.piholder.R
 import net.treelzebub.piholder.env.PiHolderEnv
-import net.treelzebub.piholder.kotterknife.bindView
-import android.webkit.WebViewClient
-
-
 
 class PiHoleAdminActivity : WebViewActivity() {
 
@@ -24,15 +21,14 @@ class PiHoleAdminActivity : WebViewActivity() {
         }
     }
 
-    private val webview by bindView<WebView>(R.id.webview)
-    private val url     by lazy { intent.getStringExtra("url") }
+    private val url by lazy { intent.getStringExtra("url") }
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pihole_admin)
         webview.settings.javaScriptEnabled = true
-        webview.setWebViewClient(WebViewClient())
+        webview.webViewClient = WebViewClient()
 
         if (PiHolderEnv.env.isProd) supportActionBar!!.hide()
 
@@ -46,16 +42,7 @@ class PiHoleAdminActivity : WebViewActivity() {
     override fun onResume() {
         super.onResume()
         webview.loadUrl(url)
-    }
-
-    private var taps = 0
-    override fun onBackPressed() {
-        if (++taps == 1) {
-            Toast.makeText(this, "Tap back again to exit.", Toast.LENGTH_SHORT).show()
-        } else {
-            finish()
-            super.onBackPressed()
-        }
+        Toast.makeText(this, url, Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

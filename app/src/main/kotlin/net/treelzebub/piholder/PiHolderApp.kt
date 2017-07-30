@@ -8,8 +8,6 @@ class PiHolderApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        ContextHolder.context = this
         PiHolderEnv.env = CurrentEnv(BuildConfig::class.java)
-        PiHolderInit.init()
     }
 }

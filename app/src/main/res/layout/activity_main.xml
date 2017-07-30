@@ -6,31 +6,32 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="72dp"
+        android:contentDescription="@string/cd_logo_for_pi_hole"
+        android:layout_width="@dimen/icon_width"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="@dimen/margin_large"
         android:src="@drawable/piholelogo" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter your Pi-Hole Admin Panel URL" />
+        android:text="@string/main_title" />
 
     <EditText
         android:id="@+id/url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:hint="10.0.0.2/admin"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_marginRight="@dimen/margin_normal"
+        android:hint="@string/example_url"
         android:imeOptions="actionGo"
-        android:inputType="textNoSuggestions"
+        android:inputType="textNoSuggestions|textUri"
         android:singleLine="true" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OK" />
+        android:text="@android:string/ok" />
 </LinearLayout>
