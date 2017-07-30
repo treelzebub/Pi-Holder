@@ -6,4 +6,9 @@
         android:id="@+id/debug_reset"
         android:title="Reset URL"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/crash"
+        android:title="Crash!"
+        app:showAsAction="never" />
 </menu>

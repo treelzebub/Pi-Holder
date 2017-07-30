@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.webkit.WebViewClient
 import android.widget.Toast
+import com.crashlytics.android.Crashlytics
 import kotlinx.android.synthetic.main.activity_pihole_admin.*
 import net.treelzebub.knapsack.extensions.startActivity
 import net.treelzebub.piholder.R
@@ -53,9 +54,12 @@ class PiHoleAdminActivity : WebViewActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.debug_reset) {
-            startActivity(MainActivity.reset(this))
-            finish()
+        when (item.itemId) {
+            R.id.debug_reset -> {
+                startActivity(MainActivity.reset(this))
+                finish()
+            }
+            R.id.crash -> throw RuntimeException("Purposeful crash!")
         }
         return super.onOptionsItemSelected(item)
     }

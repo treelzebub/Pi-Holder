@@ -10,6 +10,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/PiHolder">
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="3d7fb7f9bb05e938c2d258c8562903264f5c6b19"/>
 
         <activity android:name=".activity.MainActivity">
             <intent-filter>
